@@ -1,4 +1,4 @@
-# provider.tf block
+# Start of provider.tf block
 terraform {
   required_providers {
     aws = {
@@ -11,7 +11,7 @@ terraform {
 provider "aws" {
   region = "ap-southeast-1"
 }
-# provider.tf block
+# End of provider.tf block
 
 resource "aws_instance" "web1" {
   ami             = "ami-05d1dd0175a5c3b99"
@@ -35,7 +35,7 @@ resource "aws_instance" "web1" {
 #  }
 #}
 
-# securitygroup.tf block
+# Start of securitygroup.tf block
 resource "aws_security_group" "allow_ssh" { // create security group
   name        = "rudyn-allow-ssh"
   description = "Allow SSH inbound traffic"
@@ -62,9 +62,9 @@ resource "aws_security_group" "allow_ssh" { // create security group
     Name = "rudyn-allow-ssh"
   }
 }
-# securitygroup.tf block
+# End of securitygroup.tf block
 
-# variables.tf block
+# Start of variables.tf block
 variable "name_prefix" {
   type = string
   default = "rudyn"
@@ -74,10 +74,10 @@ variable "environment" {
   type = string
   default = "development"
 }
-# variables.tf block
+# End of variables.tf block
 
-# outputs.tf block
+# Start of outputs.tf block
 output "web1_public_ip" {
     value = aws_instance.web1.public_ip
 }
-# outputs.tf block
+# End of outputs.tf block
