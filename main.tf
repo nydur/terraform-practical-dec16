@@ -1,4 +1,4 @@
-#Star of "resource" block
+#Start of "resource" block
 resource "aws_instance" "web1" {
   ami             = "ami-05d1dd0175a5c3b99"
   instance_type   = "t3.micro"
